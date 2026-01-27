@@ -1,0 +1,130 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.backBtn {
+    position: absolute;
+    left: 25px;
+    top: 95px;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.guide {
+    position: absolute;
+    bottom: 155px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--background);
+    text-shadow: 0 3px 2px rgba(0, 0, 0, 0.70);
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.26px;
+}
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 290px;
+    height: 290px;
+
+    z-index: 10;
+    pointer-events: none;
+}
+
+.frame span {
+    position: absolute;
+    background: #fff;
+}
+
+/* 横線 */
+.tl,
+.tr,
+.bl,
+.br {
+    width: 40px;
+    height: 4px;
+}
+
+/* 縦線（共通） */
+.frame span::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    background: #fff;
+}
+
+/* 左上 */
+.tl {
+    top: 0;
+    left: 0;
+}
+
+.tl::after {
+    top: 0;
+    left: 0;
+}
+
+/* 右上 */
+.tr {
+    top: 0;
+    right: 0;
+}
+
+.tr::after {
+    top: 0;
+    right: 0;
+}
+
+/* 左下 */
+.bl {
+    bottom: 0;
+    left: 0;
+}
+
+.bl::after {
+    bottom: 0;
+    left: 0;
+}
+
+/* 右下 */
+.br {
+    bottom: 0;
+    right: 0;
+}
+
+.br::after {
+    bottom: 0;
+    right: 0;
+}
+
+.frame span,
+.frame span::after {
+    border-radius: 999px;
+}
