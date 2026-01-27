@@ -44,6 +44,7 @@
             border-radius: 50px;
             font-weight: bold;
             line-height: 28px;
+            box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.4);
         }
     }
 
@@ -65,8 +66,8 @@
             height: 80px;
             border-radius: 50px;
             background: var(--grayColor);
-
-            img {
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5), inset 0px -3px 6px -2px rgba(0, 0, 0, 0.3);
+            img{
                 margin-top: 10px;
             }
         }
