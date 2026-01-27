@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.content}>
       <header>
-        <h1><Image src="/assets/logo.svg" alt="時結-tokiyui-AR"  width={342} height={245}/></h1>
+        <h1><Image src="/assets/logo.svg" alt="時結-tokiyui-AR" width={342} height={245} /></h1>
       </header>
       <main>
         <Link href="/ar" className={styles.arBtn}>　ARを始める</Link>
@@ -14,16 +14,16 @@ export default function Home() {
       </main>
       <footer>
         <Link href="/record" className={styles.footerBtn}>
-        <div className={styles.box}>
-          <Image src="/assets/record.svg" alt="写真のアイコン" width={35} height={35} />
-        </div>
-        記録
+          <div className={styles.box}>
+            <Image src="/assets/record.svg" alt="写真のアイコン" width={35} height={35} />
+          </div>
+          記録
         </Link>
         <Link href="/search" className={styles.footerBtn}>
-        <div className={styles.box}>
-          <Image src="/assets/search.svg" alt="虫眼鏡のアイコン" width={35} height={35} />
-        </div>
-        発見
+          <div className={styles.box}>
+            <Image src="/assets/search.svg" alt="虫眼鏡のアイコン" width={35} height={35} />
+          </div>
+          発見
         </Link>
       </footer>
     </div>
