@@ -1,0 +1,55 @@
+.camera {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--mainColor);
+    position: relative;
+}
+
+.frame {
+    width: min(100vw, calc(100vh * 3 / 4));
+    height: calc(min(100vw, calc(100vh * 3 / 4)) * 4 / 3);
+    position: relative;
+}
+
+.frame canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* シャッター */
+.shutter {
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--background);
+    background-image: url(/assets/camera.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.backBtn {
+    position: absolute;
+    left: 25px;
+    top: 95px;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+
+}
