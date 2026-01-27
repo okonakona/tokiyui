@@ -1,6 +1,10 @@
 :root {
   --background: #F8F6F2;
   --foreground: #333333;
+  --brandColor: #F2C1C3;
+  --mainColor: #274A78;
+  --subColor: #A8CFA7;
+  --grayColor: #888888;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +24,12 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-zen-maru), sans-serif;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
