@@ -9,6 +9,14 @@ export default function CameraPage() {
     const [image, setImage] = useState<string | null>(null);
     const router = useRouter();
 
+    const handleConfirm = () => {
+        if (!image) return;
+
+        localStorage.setItem("lastShot", image);
+
+        router.push("/ar/result");
+    };
+
     return (
         <>
             <ARCamera onShot={(img) => setImage(img)} />
@@ -16,8 +24,8 @@ export default function CameraPage() {
             <RecordModal
                 open={!!image}
                 image={image}
-                onConfirm={() => router.push("/ar/result")}
                 onRetry={() => setImage(null)}
+                onConfirm={handleConfirm}
             />
         </>
     );

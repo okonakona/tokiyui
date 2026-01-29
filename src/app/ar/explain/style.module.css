@@ -1,0 +1,23 @@
+.wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: var(--brandColor);
+    overflow: hidden;
+}
+
+.cameraBase {
+    position: absolute;
+    inset: 0;
+    width: min(100vw, calc(100vh * 3 / 4));
+    height: calc(min(100vw, calc(100vh * 3 / 4)) * 4 / 3);
+    background: #000;
+}
+
+.cameraBase img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+}
