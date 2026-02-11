@@ -38,7 +38,7 @@ export default function ExplainOverlay() {
                     <p className={styles.shimo}>
                         いでそよ人を 忘れやはする
                     </p>
-                    <Link href="/result" className={styles.backBtn}>図鑑を見る</Link>
+                    <Link href="/album" className={styles.backBtn}>図鑑を見る</Link>
                 </div>
             </div>
         </>
