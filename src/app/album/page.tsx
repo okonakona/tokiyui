@@ -43,7 +43,7 @@ export default function AlbumPage() {
                         </li>
                         <li
                             className={styles.poem}
-                            onClick={() => setActiveTab("poem")}
+                        // onClick={() => setActiveTab("poem")}
                         >
                             <h2>和歌</h2>
                         </li>
