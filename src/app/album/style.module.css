@@ -1,0 +1,72 @@
+.content {
+    background: var(--mainColor);
+    width: 100%;
+    padding: 70px 0 100px;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--background);
+    margin: 25px;
+
+    .textWrap {
+        display: flex;
+        height: 400px;
+    }
+
+
+    p,
+    h3 {
+        writing-mode: vertical-rl;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    p {
+        margin: 10px 0 0;
+    }
+}
+
+.wrapper {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.box {
+    width: 100px;
+    height: 133px;
+    overflow: hidden;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    background: var(--grayColor);
+
+}
+
+.box img {
+    width: 100px;
+    height: 133px;
+    display: block;
+}
+
+.backBtn {
+    position: fixed;
+    left: 25px;
+    bottom: 40px;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--brandColor);
+    color: var(--foreground);
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+
+}
