@@ -13,11 +13,11 @@ export default function Home() {
         <Link href="/how-to" className={styles.howtoBtn}>遊び方</Link>
       </main>
       <footer>
-        <Link href="/record" className={styles.footerBtn}>
+        <Link href="/album" className={styles.footerBtn}>
           <div className={styles.box}>
             <Image src="/assets/record.svg" alt="写真のアイコン" width={35} height={35} />
           </div>
-          記録
+          図鑑
         </Link>
         <Link href="/search" className={styles.footerBtn}>
           <div className={styles.box}>

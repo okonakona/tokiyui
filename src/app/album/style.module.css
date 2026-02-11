@@ -1,0 +1,112 @@
+.header {
+    margin-top: 20px;
+    text-align: center;
+
+    .nav {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 10px;
+        color: var(--background);
+        height: 60px;
+        line-height: 60px;
+    }
+
+    li {
+        border-radius: 15px 15px 0 0;
+        width: 100%;
+
+    }
+
+    .people {
+        background: var(--mainColor);
+    }
+
+    .poem {
+        background: var(--subColor);
+    }
+}
+
+.content {
+    background: var(--mainColor);
+    width: 100%;
+    height: 100%;
+    padding: 70px 0;
+
+}
+
+.contentPeople {
+    background: var(--mainColor);
+}
+
+.contentPoem {
+    background: var(--subColor);
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--background);
+    margin: 0px 25px 100px;
+
+    .textWrap {
+        display: flex;
+        height: 400px;
+    }
+
+
+    p,
+    h3 {
+        writing-mode: vertical-rl;
+        font-size: 15px;
+    }
+
+    h3 {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    p {
+        margin: 10px 0 0;
+        font-weight: 500;
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 20px;
+    flex-direction: column-reverse;
+}
+
+.box {
+    width: 100px;
+    height: 133px;
+    overflow: hidden;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    background: var(--grayColor);
+
+}
+
+.box img {
+    width: 100px;
+    height: 133px;
+    display: block;
+}
+
+.backBtn {
+    position: fixed;
+    left: 25px;
+    bottom: 40px;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50px;
+    background: var(--brandColor);
+    color: var(--foreground);
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 100;
+
+}

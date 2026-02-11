@@ -25,7 +25,7 @@ export default function CongratsCard({ image }: Props) {
                 <Link href="/ar/explain" className={styles.primary}>
                     解説を見る
                 </Link>
-                <Link href="/collection" className={styles.secondary}>
+                <Link href="/album" className={styles.secondary}>
                     図鑑を見る
                 </Link>
             </div>
