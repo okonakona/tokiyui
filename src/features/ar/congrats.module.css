@@ -4,6 +4,7 @@
     padding: 24px;
     text-align: center;
     animation: fadeUp 0.4s ease;
+    border-top: 1px solid #000;
 }
 
 @keyframes fadeUp {
@@ -47,20 +48,20 @@
     gap: 12px;
 }
 
-.primary {
-    background: var(--brandColor);
+.primary,
+.secondary {
     color: var(--background);
     padding: 12px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
+    border-bottom: 2px solid var(--grayColor);
+}
+
+.primary {
+    background: var(--brandColor);
 }
 
 .secondary {
     background: var(--subColor);
-    color: var(--background);
-    padding: 12px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
 }

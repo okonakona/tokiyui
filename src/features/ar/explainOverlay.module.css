@@ -1,16 +1,3 @@
-/* 信長の一言 */
-.quote {
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--background);
-    font-size: 22px;
-    letter-spacing: 0.2em;
-    text-shadow: 0 0 12px rgba(255, 80, 80, 0.8);
-    animation: fadeIn 1.2s ease;
-}
-
 /* 下部カード */
 .card {
     position: absolute;
@@ -36,25 +23,13 @@
 .text {
     font-size: 14px;
     line-height: 1.7;
-    margin-bottom: 8px;
-}
-
-/* 百人一首 */
-.poem {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #ddd;
-}
-
-.kami,
-.shimo {
-    font-size: 14px;
-    text-align: center;
+    margin-top: 16px;
 }
 
 .backBtn {
     display: block;
-    margin: 10px auto;
+    margin: 40px auto;
+    border-top: 1.5px solid var(--grayColor);
     line-height: 50px;
     text-align: center;
     border-radius: 50px;
