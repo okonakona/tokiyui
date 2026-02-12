@@ -4,22 +4,46 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ARCamera from "@/features/ar/ARCamera";
 import RecordModal from "@/features/ar/RecordModal";
+import { useSearchParams } from "next/navigation";
 
 export default function CameraPage() {
     const [image, setImage] = useState<string | null>(null);
     const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const id = searchParams.get("id");
 
     const handleConfirm = () => {
-        if (!image) return;
+        if (!image || !id) return;
 
-        localStorage.setItem("lastShot", image);
+        const stored = localStorage.getItem("album");
+        const album = stored ? JSON.parse(stored) : { people: [], poem: [] };
+
+        const category = id.startsWith("people") ? "people" : "poem";
+
+        const newRecord = {
+            id,
+            image,
+            savedAt: Date.now(),
+        };
+
+        album[category] = album[category].filter(
+            (item: any) => item.id !== id
+        );
+
+        album[category].push(newRecord);
+
+        localStorage.setItem("album", JSON.stringify(album));
 
         router.push("/ar/result");
     };
 
     return (
         <>
-            <ARCamera onShot={(img) => setImage(img)} />
+            <ARCamera
+                markerId={id}
+                onShot={(img) => setImage(img)}
+            />
 
             <RecordModal
                 open={!!image}

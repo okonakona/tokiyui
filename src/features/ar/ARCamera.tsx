@@ -4,13 +4,12 @@ import { useEffect, useRef } from "react";
 import styles from "./arCamera.module.css";
 import Link from "next/link";
 
-
 type Props = {
+    markerId: string | null;
     onShot: (image: string) => void;
 };
 
-
-export default function ARCamera({ onShot }: Props) {
+export default function ARCamera({ markerId, onShot }: Props) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const frameImageRef = useRef<HTMLImageElement | null>(null);
@@ -18,10 +17,12 @@ export default function ARCamera({ onShot }: Props) {
 
     // フレーム画像ロード
     useEffect(() => {
+        if (!markerId) return;
+
         const img = new Image();
-        img.src = "/ar/people_01.png";
+        img.src = `/ar/${markerId}.png`; // ← 自動切替
         frameImageRef.current = img;
-    }, []);
+    }, [markerId]);
 
     // カメラ起動
     useEffect(() => {
