@@ -5,14 +5,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ARCamera from "@/features/ar/ARCamera";
 import RecordModal from "@/features/ar/RecordModal";
-import { useSearchParams } from "next/navigation";
 
-export default function CameraPage() {
+export default function CameraPage({
+    searchParams,
+}: {
+    searchParams: { id?: string };
+}) {
     const [image, setImage] = useState<string | null>(null);
     const router = useRouter();
-    const searchParams = useSearchParams();
 
-    const id = searchParams.get("id");
+    const id = searchParams?.id ?? null;
 
     const handleConfirm = () => {
         if (!image || !id) return;
@@ -42,10 +44,7 @@ export default function CameraPage() {
 
     return (
         <>
-            <ARCamera
-                markerId={id}
-                onShot={(img) => setImage(img)}
-            />
+            <ARCamera markerId={id} onShot={(img) => setImage(img)} />
 
             <RecordModal
                 open={!!image}
