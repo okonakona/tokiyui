@@ -12,9 +12,11 @@ type Record = {
 const albumData = {
     people: [
         { title: "織田信長", text: "日本の戦国時代から安土桃山時代にかけての武将・大名。戦国の三英傑の一人。 尾張国出身。" },
+        { title: "新撰組", text: "江戸時代末期（幕末）に江戸幕府の徴募により組織された浪士隊である。特に尊攘派構成員の摘発活動に従事した。" },
     ],
     poem: [
-        { title: "百人一首", text: "百人の和歌を一人につき一首ずつ選んで作られた百首から成る秀歌撰（詞華集）。" },
+        { title: "良暹法師（七十番）", text: "淋しさに　宿を立ち出でて　ながむれば　いづこも同じ　秋のゆふぐれ" },
+        { title: "曽禰好忠（四十六番）", text: "由良の門を　わたる舟人　かぢをたえ　ゆくへも知らぬ　恋の道かな" },
     ],
 };
 
@@ -42,7 +44,7 @@ export default function AlbumPage() {
                         </li>
                         <li
                             className={styles.poem}
-                        // onClick={() => setActiveTab("poem")}
+                            onClick={() => setActiveTab("poem")}
                         >
                             <h2>和歌</h2>
                         </li>
