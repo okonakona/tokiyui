@@ -19,7 +19,7 @@ export default function ARCamera({ onShot }: Props) {
     // フレーム画像ロード
     useEffect(() => {
         const img = new Image();
-        img.src = "/ar/ex.png";
+        img.src = "/ar/people_01.png";
         frameImageRef.current = img;
     }, []);
 
