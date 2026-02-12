@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ExplainOverlay from "@/features/ar/ExplainOverlay";
@@ -23,6 +21,7 @@ export default function ExplainPage() {
     const id = searchParams.get("id"); // ?id=poem_02 など
 
     useEffect(() => {
+        if (typeof window === "undefined") return;
         const saved = localStorage.getItem("album");
         if (!saved || !id) return;
 
