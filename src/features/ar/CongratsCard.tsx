@@ -5,9 +5,10 @@ import Link from "next/link";
 
 type Props = {
     image: string;
+    id: string;
 };
 
-export default function CongratsCard({ image }: Props) {
+export default function CongratsCard({ image, id }: Props) {
     return (
         <div className={styles.card}>
             <h1 className={styles.title}>記録完了！</h1>
@@ -22,7 +23,7 @@ export default function CongratsCard({ image }: Props) {
             </p>
 
             <div className={styles.actions}>
-                <Link href="/ar/explain" className={styles.primary}>
+                <Link href={`/ar/explain?id=${id}`} className={styles.primary}>
                     解説を見る
                 </Link>
                 <Link href="/album" className={styles.secondary}>

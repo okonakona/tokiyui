@@ -14,7 +14,6 @@ export default function MarkerScanner({ onDetect }: Props) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationId = useRef<number | null>(null);
     const detectedRef = useRef(false);
-    const frameCount = useRef(0);
 
     // カメラ起動
     useEffect(() => {
@@ -72,7 +71,6 @@ export default function MarkerScanner({ onDetect }: Props) {
                     const markerId = code.data; // ← QRの中身
                     onDetect(markerId);
 
-                    return;
                 }
 
                 animationId.current = requestAnimationFrame(draw);

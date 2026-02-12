@@ -12,6 +12,7 @@ export default function MarkerPage() {
 
     const handleDetect = (id: string) => {
         setDetectedId(id);
+        localStorage.setItem("detectedMarker", id);
         setLoading(true);
 
         setTimeout(() => {

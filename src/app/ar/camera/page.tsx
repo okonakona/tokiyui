@@ -34,6 +34,7 @@ export default function CameraPage() {
         album[category].push(newRecord);
 
         localStorage.setItem("album", JSON.stringify(album));
+        localStorage.setItem("lastShot", image);
 
         router.push("/ar/result");
     };
