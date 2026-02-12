@@ -23,12 +23,26 @@ const albumData = {
 export default function AlbumPage() {
     const [image, setImage] = useState<string | null>(null);
     const [activeTab, setActiveTab] = useState<"people" | "poem">("people");
+    const [album, setAlbum] = useState<{
+        people: any[];
+        poem: any[];
+    }>({
+        people: [],
+        poem: [],
+    });
 
 
     useEffect(() => {
-        const saved = localStorage.getItem("lastShot");
-        setImage(saved);
+        const stored = localStorage.getItem("album");
+        if (stored) {
+            setAlbum(JSON.parse(stored));
+        }
     }, []);
+
+    const getImageById = (id: string) => {
+        return album[activeTab].find((item: any) => item.id === id)?.image;
+    };
+
 
     return (
         <div>
@@ -56,39 +70,40 @@ export default function AlbumPage() {
                     ? styles.contentPeople
                     : styles.contentPoem
                     }`}>
-                    {albumData[activeTab].map((item, index) => (
-                        <>
-                            <div className={styles.container}>
+                    {albumData[activeTab].map((item, index) => {
+                        const id = `${activeTab}_${String(index + 1).padStart(2, "0")}`;
+                        const img = getImageById(id);
+
+                        return (
+                            <div className={styles.container} key={id}>
                                 <div className={styles.wrapper}>
-                                    <div className={styles.box}>
-                                    </div>
-                                    <Link href="ar/explain" >
+                                    <div className={styles.box}></div>
+
+                                    <Link href={`/ar/explain?id=${id}`}>
                                         <div className={styles.box}>
-                                            {image && (
+                                            {img && (
                                                 <img
-                                                    src={image}
+                                                    src={img}
                                                     alt="保存した画像"
                                                     className={styles.previewImage}
                                                 />
                                             )}
                                         </div>
                                     </Link>
-                                    <div className={styles.box}>
-                                    </div>
-                                    <div className={styles.box}>
-                                    </div>
-                                    <div className={styles.box}>
-                                    </div>
-                                    <div className={styles.box}>
-                                    </div>
+
+                                    <div className={styles.box}></div>
+                                    <div className={styles.box}></div>
+                                    <div className={styles.box}></div>
+                                    <div className={styles.box}></div>
                                 </div>
+
                                 <div className={styles.textWrap}>
                                     <p>{item.text}</p>
                                     <h3>{item.title}</h3>
                                 </div>
                             </div>
-                        </>
-                    ))}
+                        );
+                    })}
                 </div>
 
             </main >

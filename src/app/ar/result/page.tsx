@@ -1,20 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import CongratsCard from "@/features/ar/CongratsCard";
 import styles from "./style.module.css";
 
 export default function ResultPage() {
-    // 仮：localStorage から取得
-    const image =
-        typeof window !== "undefined"
-            ? localStorage.getItem("lastShot")
-            : null;
+    const [image, setImage] = useState<string | null>(null);
+    const [id, setId] = useState<string | null>(null);
 
-    if (!image) return null;
+    useEffect(() => {
+        const savedImage = localStorage.getItem("lastShot");
+        const detectedMarker = localStorage.getItem("detectedMarker");
+
+        setImage(savedImage);
+        setId(detectedMarker);
+    }, []);
+
+    if (!image || !id) return null;
 
     return (
         <div className={styles.wrapper}>
-            <CongratsCard image={image} />
+            <CongratsCard image={image} id={id} />
         </div>
     );
 }

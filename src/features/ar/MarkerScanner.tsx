@@ -3,10 +3,10 @@
 import { useEffect, useRef } from "react";
 import styles from "./marker.module.css";
 import Link from "next/link";
-
+import jsQR from "jsqr";
 
 type Props = {
-    onDetect: () => void;
+    onDetect: (markerId: string) => void;
 };
 
 export default function MarkerScanner({ onDetect }: Props) {
@@ -14,7 +14,6 @@ export default function MarkerScanner({ onDetect }: Props) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationId = useRef<number | null>(null);
     const detectedRef = useRef(false);
-    const frameCount = useRef(0);
 
     // カメラ起動
     useEffect(() => {
@@ -53,23 +52,31 @@ export default function MarkerScanner({ onDetect }: Props) {
             const draw = () => {
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-                // ===== 仮マーカー検出 =====
-                if (!detectedRef.current) {
-                    frameCount.current += 1;
+                const imageData = ctx.getImageData(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
 
-                    // 約2秒後に検出成功したことにする
-                    if (frameCount.current > 360) {
-                        detectedRef.current = true;
-                        onDetect();
-                        return;
-                    }
+                const code = jsQR(
+                    imageData.data,
+                    imageData.width,
+                    imageData.height
+                );
+
+                if (code && !detectedRef.current) {
+                    detectedRef.current = true;
+
+                    const markerId = code.data; // ← QRの中身
+                    onDetect(markerId);
+
                 }
-                // ==========================
 
                 animationId.current = requestAnimationFrame(draw);
             };
-
             draw();
+
         };
 
         video.addEventListener("loadedmetadata", onLoaded);
